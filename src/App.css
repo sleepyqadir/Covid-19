@@ -1,18 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -38,18 +23,58 @@
 }
 
 .level_1_bg {
-  /* background-image: url("./imgs/map6.png");
-  background-size: 250px;
-  background-repeat: no-repeat; */
   color: #2f54eb;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.level_1_bg:hover {
+  border: 4px solid #2f54eb;
 }
 .level_2_bg {
-  /* background-image: url("./imgs/map2.png");
-  background-size: 250px; */
   color: #52c41a;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.level_2_bg:hover {
+  border: 4px solid #52c41a;
 }
 .level_3_bg {
-  /* background-image: url("./imgs/map2.png");
-  background-size: 250px; */
   color: #cf1322;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.level_3_bg:hover {
+  border: 4px solid #cf1322;
+}
+.main_logo {
+  margin-left: 20px;
+  width: 50px;
+  animation: rotation 10s infinite linear;
+}
+.main_logo_heading {
+  margin-left: 30px;
+  font-size: 28px;
+  color: white;
+}
+.ant-card-body{
+  padding: 10px;
+  padding-right: 20px;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(359deg);
+  }
+  60% {
+    transform: rotate(359deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.update_time {
+  color: #d46b08;
 }
