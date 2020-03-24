@@ -13,6 +13,7 @@
     "react": "^16.13.1",
     "react-country-flag": "^2.0.1",
     "react-dom": "^16.13.1",
+    "react-infinite-scroller": "^1.2.4",
     "react-scripts": "3.4.1"
   },
   "scripts": {

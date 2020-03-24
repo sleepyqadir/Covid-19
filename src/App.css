@@ -57,7 +57,7 @@
   font-size: 28px;
   color: white;
 }
-.ant-card-body{
+.ant-card-body {
   padding: 10px;
   padding-right: 20px;
 }
@@ -77,4 +77,11 @@
 }
 .update_time {
   color: #d46b08;
+}
+.cases{
+  font-size: 18px;
+}
+.country_list {
+  height: calc(100vh - 80px);
+  overflow: scroll;
 }

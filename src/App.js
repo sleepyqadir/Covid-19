@@ -6,6 +6,7 @@ import { List, Avatar, Spin, Input } from "antd";
 
 import SiteStatitic from "./Components/SiteStatitic";
 import MainHeader from "./Components/MainHeader";
+import Countries from "./Components/Countries";
 
 // import World from "./Components/WorldMap_1";
 const { Search } = Input;
@@ -39,7 +40,7 @@ class App extends Component {
           </Col>
           <Col span={6}>
             <Layout>
-              <Content></Content>
+              <Countries />
             </Layout>
           </Col>
         </Row>
