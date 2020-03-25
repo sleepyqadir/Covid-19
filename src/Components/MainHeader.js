@@ -15,7 +15,7 @@ class MainHeader extends Component {
         >
           <Row gutter={12}>
             <Col span={1}>
-              <img src={Logo} className="main_logo" />
+              <img src={Logo} className="main_logo" alt="Covid-19" />
             </Col>
             <Col span={9}>
               <h1 className="main_logo_heading">COVID-19</h1>

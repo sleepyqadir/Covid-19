@@ -24,28 +24,33 @@
 
 .level_1_bg {
   color: #2f54eb;
+}
+.level_1_card:hover {
+  box-shadow: 0 0 40px #2f54eb;
+}
+.level_1_card {
   font-weight: bold;
   border-radius: 10px;
-}
-
-.level_1_bg:hover {
-  border: 4px solid #2f54eb;
 }
 .level_2_bg {
   color: #52c41a;
+}
+.level_2_card {
   border-radius: 10px;
   font-weight: bold;
 }
-.level_2_bg:hover {
-  border: 4px solid #52c41a;
+.level_2_card:hover {
+  box-shadow: 0 0 40px #52c41a;
 }
 .level_3_bg {
   color: #cf1322;
+}
+.level_3_card {
   border-radius: 10px;
   font-weight: bold;
 }
-.level_3_bg:hover {
-  border: 4px solid #cf1322;
+.level_3_card:hover {
+  box-shadow: 0 0 40px #cf1322;
 }
 .main_logo {
   margin-left: 20px;
@@ -78,10 +83,25 @@
 .update_time {
   color: #d46b08;
 }
-.cases{
+.cases {
   font-size: 18px;
 }
 .country_list {
   height: calc(100vh - 80px);
   overflow: scroll;
+}
+.total_cases:hover {
+  background-color: rgba(245, 245, 245, 0.89);
+  box-shadow: 0 0 40px #2f54eb;
+  color: white !important;
+}
+.total_deaths:hover {
+  background-color: rgba(245, 245, 245, 0.89);
+  box-shadow: 0 0 40px #cf1322;
+  color: white !important;
+}
+.total_recovered:hover {
+  background-color: rgba(245, 245, 245, 0.89);
+  box-shadow: 0 0 40px #52c41a;
+  color: white !important;
 }

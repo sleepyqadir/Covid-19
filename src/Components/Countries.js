@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Col, Layout, Row } from "antd";
+import { Layout, Menu, Dropdown, Button, message } from "antd";
 import { List, Avatar } from "antd";
-import InfiniteScroll from "react-infinite-scroller";
-const { Header, Content } = Layout;
+import { RadarChartOutlined } from "@ant-design/icons";
+const { Content } = Layout;
 class Countries extends Component {
   componentDidMount() {
     fetch("http://127.0.0.1:8000/").then(res => {
@@ -13,15 +13,35 @@ class Countries extends Component {
       });
     });
   }
+
+  handleMenuClick = e => {
+    this.setState({
+      type: e.key
+    });
+  };
   state = {
-    countries: []
+    countries: [],
+    type: "total_cases"
   };
   render() {
-    const { countries } = this.state;
+    const menu = (
+      <Menu onClick={this.handleMenuClick}>
+        <Menu.Item key="total_cases" className="level_1_bg">
+          Total Cases
+        </Menu.Item>
+        <Menu.Item key="total_deaths" className="level_3_bg">
+          Total Deaths
+        </Menu.Item>
+        <Menu.Item key="total_recovered" className="level_2_bg">
+          Total Recoverd
+        </Menu.Item>
+      </Menu>
+    );
+    const { countries, type } = this.state;
     console.log(countries);
     const list = countries.map(item => {
       return (
-        <List.Item key={item.country_name}>
+        <List.Item key={item.country_name} className={type}>
           <List.Item.Meta
             avatar={
               <Avatar
@@ -32,7 +52,13 @@ class Countries extends Component {
             }
             title={<a href="https://ant.design">{item.country_name}</a>}
           />
-          <div className="level_1_bg cases">{item.cases}</div>
+          {type === "total_cases" ? (
+            <div className="level_1_bg cases">{item.cases} C</div>
+          ) : type === "total_deaths" ? (
+            <div className="level_3_bg cases">{item.deaths} D</div>
+          ) : (
+            <div className="level_2_bg cases">{item.total_recovered} R</div>
+          )}
         </List.Item>
       );
     });
@@ -43,7 +69,19 @@ class Countries extends Component {
           <List
             bordered={true}
             className="country_list"
-            header={<div>Header</div>}
+            header={
+              <div>
+                {" "}
+                <h3 className="update_time">
+                  Total Territories : {countries.length}{" "}
+                  <Dropdown overlay={menu}>
+                    <Button style={{ marginLeft: "50px" }}>
+                      <RadarChartOutlined />
+                    </Button>
+                  </Dropdown>
+                </h3>
+              </div>
+            }
           >
             {list}
           </List>

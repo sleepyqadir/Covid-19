@@ -22,7 +22,7 @@ class SiteStatitic extends Component {
           <div className="site-statistic-demo-card">
             <Row gutter={16}>
               <Col span={8}>
-                <Card className="level_1_bg" bordered={true}>
+                <Card className="level_1_bg level_1_card" bordered={true}>
                   <Col>
                     <h3>
                       TOTAL CASES
@@ -57,7 +57,7 @@ class SiteStatitic extends Component {
                 </Card>
               </Col>
               <Col span={8}>
-                <Card className="level_3_bg" bordered={true}>
+                <Card className="level_3_bg level_3_card" bordered={true}>
                   <Col>
                     <h3>
                       TOTAL DEATHS
@@ -91,7 +91,7 @@ class SiteStatitic extends Component {
               </Col>
 
               <Col span={8}>
-                <Card className="level_2_bg" bordered={true}>
+                <Card className="level_2_bg level_2_card" bordered={true}>
                   <Col>
                     <h3>TOTAL RECOVERED</h3>
                     <TweenOne
