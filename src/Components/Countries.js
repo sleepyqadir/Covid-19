@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Layout, Menu, Dropdown, Button, message } from "antd";
+import { Layout, Menu, Dropdown, Button, Modal } from "antd";
 import { List, Avatar } from "antd";
 import { RadarChartOutlined } from "@ant-design/icons";
+import BarChart from "./BarChart";
+import MainModal from "./MainModal";
 const { Content } = Layout;
 class Countries extends Component {
   componentDidMount() {
@@ -21,7 +23,13 @@ class Countries extends Component {
   };
   state = {
     countries: [],
-    type: "total_cases"
+    type: "total_cases",
+    modalVisible: false
+  };
+  setModal1Visible = val => {
+    this.setState({
+      modalVisible: val
+    });
   };
   render() {
     const menu = (
@@ -38,8 +46,16 @@ class Countries extends Component {
       </Menu>
     );
     const { countries, type } = this.state;
-    console.log(countries);
-    const list = countries.map(item => {
+    const { query } = this.props;
+    const filteredCountries =
+      query === ""
+        ? countries
+        : countries.filter(c => {
+            return c.country_name
+              .toLowerCase()
+              .includes(query.toLowerCase().trim());
+          });
+    const list = filteredCountries.map(item => {
       return (
         <List.Item key={item.country_name} className={type}>
           <List.Item.Meta
@@ -50,7 +66,8 @@ class Countries extends Component {
                   .replace(/ /g, "-")}-circular.png`}
               />
             }
-            title={<a href="https://ant.design">{item.country_name}</a>}
+            title={<h4>{item.country_name}</h4>}
+            onClick={this.setModal1Visible}
           />
           {type === "total_cases" ? (
             <div className="level_1_bg cases">{item.cases} C</div>
@@ -65,6 +82,10 @@ class Countries extends Component {
 
     return (
       <div>
+        <MainModal
+          modalVisible={this.state.modalVisible}
+          setModal1Visible={this.setModal1Visible}
+        />
         <Content>
           <List
             bordered={true}

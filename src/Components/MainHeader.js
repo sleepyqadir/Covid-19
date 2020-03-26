@@ -31,6 +31,7 @@ class MainHeader extends Component {
                 onSearch={value => console.log(value)}
                 style={{ width: 200 }}
                 className="search_input"
+                onChange={this.props.onHandleChange}
               />
             </Col>
           </Row>

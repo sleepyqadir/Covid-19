@@ -2,15 +2,13 @@ import { Col, Layout, Row } from "antd";
 import "antd/dist/antd.css";
 import React, { Component } from "react";
 import "./App.css";
-import { List, Avatar, Spin, Input } from "antd";
+import { Spin } from "antd";
 
 import SiteStatitic from "./Components/SiteStatitic";
 import MainHeader from "./Components/MainHeader";
 import Countries from "./Components/Countries";
 
 // import World from "./Components/WorldMap_1";
-const { Search } = Input;
-const { Header, Content } = Layout;
 
 class App extends Component {
   componentDidMount() {
@@ -25,13 +23,23 @@ class App extends Component {
   }
   state = {
     isLoading: false,
-    world_total_stats: {}
+    world_total_stats: {},
+    query: ""
+  };
+  onHandleChange = e => {
+    this.setState({
+      query: e.target.value
+    });
   };
   render() {
+    console.log(this.state.query);
     const { world_total_stats, isLoading } = this.state;
     return isLoading ? (
       <Layout>
-        <MainHeader last_update={world_total_stats.statistic_taken_at} />
+        <MainHeader
+          last_update={world_total_stats.statistic_taken_at}
+          onHandleChange={this.onHandleChange}
+        />
         <Row gutter={8}>
           <Col span={18}>
             <Layout className="layout">
@@ -40,7 +48,7 @@ class App extends Component {
           </Col>
           <Col span={6}>
             <Layout>
-              <Countries />
+              <Countries query={this.state.query} />
             </Layout>
           </Col>
         </Row>
