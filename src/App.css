@@ -7,6 +7,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
@@ -104,4 +105,16 @@
   background-color: rgba(245, 245, 245, 0.89);
   box-shadow: 0 0 40px #52c41a;
   color: white !important;
+}
+.mainModal {
+  margin: 20px;
+}
+.loader {
+  height: 100vh;
+}
+.loader .main_logo {
+  position: relative;
+  top: 35vh;
+  left: 40vw;
+  width: 10vw;
 }

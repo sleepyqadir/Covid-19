@@ -2,7 +2,7 @@ import { Col, Layout, Row } from "antd";
 import "antd/dist/antd.css";
 import React, { Component } from "react";
 import "./App.css";
-import { Spin } from "antd";
+import Logo from "./imgs/logo_blue.png";
 
 import SiteStatitic from "./Components/SiteStatitic";
 import MainHeader from "./Components/MainHeader";
@@ -54,8 +54,8 @@ class App extends Component {
         </Row>
       </Layout>
     ) : (
-      <div className="example">
-        <Spin />
+      <div className="loader">
+        <img src={Logo} className="main_logo" alt="Covid-19" />
       </div>
     );
   }

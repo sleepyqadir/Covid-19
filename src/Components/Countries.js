@@ -24,11 +24,13 @@ class Countries extends Component {
   state = {
     countries: [],
     type: "total_cases",
-    modalVisible: false
+    modalVisible: false,
+    modalCountry: {}
   };
-  setModal1Visible = val => {
+  setModal1Visible = (val, country = {}) => {
     this.setState({
-      modalVisible: val
+      modalVisible: val,
+      modalCountry: country
     });
   };
   render() {
@@ -45,7 +47,7 @@ class Countries extends Component {
         </Menu.Item>
       </Menu>
     );
-    const { countries, type } = this.state;
+    const { countries, type, modalCountry, modalVisible } = this.state;
     const { query } = this.props;
     const filteredCountries =
       query === ""
@@ -67,7 +69,9 @@ class Countries extends Component {
               />
             }
             title={<h4>{item.country_name}</h4>}
-            onClick={this.setModal1Visible}
+            onClick={() => {
+              this.setModal1Visible(true, item);
+            }}
           />
           {type === "total_cases" ? (
             <div className="level_1_bg cases">{item.cases} C</div>
@@ -83,8 +87,9 @@ class Countries extends Component {
     return (
       <div>
         <MainModal
-          modalVisible={this.state.modalVisible}
+          modalVisible={modalVisible}
           setModal1Visible={this.setModal1Visible}
+          country={modalCountry}
         />
         <Content>
           <List
