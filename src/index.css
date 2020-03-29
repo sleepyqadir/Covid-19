@@ -8,6 +8,8 @@ body {
   overflow-x: hidden;
   cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/820793/cursor-auto.png),
     auto;
+  background-color: #001529;
+  overflow-y: hidden;
 }
 
 code {

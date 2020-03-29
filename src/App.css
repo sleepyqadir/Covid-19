@@ -7,7 +7,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  
 }
 
 .App-link {
@@ -88,7 +87,7 @@
   font-size: 18px;
 }
 .country_list {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   overflow: scroll;
 }
 .total_cases:hover {

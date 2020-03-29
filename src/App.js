@@ -7,6 +7,8 @@ import Logo from "./imgs/logo_blue.png";
 import SiteStatitic from "./Components/SiteStatitic";
 import MainHeader from "./Components/MainHeader";
 import Countries from "./Components/Countries";
+import World from "./Components/WorldMap_1";
+import WorldMap_1 from "./Components/WorldMap_1";
 
 // import World from "./Components/WorldMap_1";
 
@@ -44,6 +46,9 @@ class App extends Component {
           <Col span={18}>
             <Layout className="layout">
               <SiteStatitic world_total_stats={world_total_stats} />
+              <div className="world_map">
+                <WorldMap_1 />
+              </div>
             </Layout>
           </Col>
           <Col span={6}>
