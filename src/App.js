@@ -14,8 +14,8 @@ import WorldMap from "./Components/WorldMap";
 class App extends Component {
   componentDidMount() {
     Promise.all([
-      fetch("http://127.0.0.1:8000/total_ratio"),
-      fetch("http://127.0.0.1:8000/")
+      fetch("https://node-covid19.herokuapp.com/total_ratio"),
+      fetch("https://node-covid19.herokuapp.com/")
     ])
       .then(([res1, res2]) => {
         return Promise.all([res1.json(), res2.json()]);

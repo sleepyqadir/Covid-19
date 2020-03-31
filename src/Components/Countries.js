@@ -4,6 +4,7 @@ import { List, Avatar } from "antd";
 import { RadarChartOutlined } from "@ant-design/icons";
 import MainModal from "./MainModal";
 import { Row, Col } from "react-flexbox-grid";
+import { mapData } from "../utils/mapData";
 const { Content } = Layout;
 class Countries extends Component {
   handleMenuClick = e => {
@@ -38,25 +39,44 @@ class Countries extends Component {
     );
     const { type, modalCountry, modalVisible } = this.state;
     const { query, countries } = this.props;
+    const result = countries
+      .map(val => {
+        let temp = {};
+        for (let iterator of mapData) {
+          if (val.country_name === iterator.name) {
+            temp = { ...val, ...iterator };
+            return temp;
+          }
+        }
+        return val;
+      })
+      .sort(function(a, b) {
+        return (
+          parseInt(b.cases.replace(/[~%&\\;:"',<>?#\s]/g, "")) -
+          parseInt(a.cases.replace(/[~%&\\;:"',<>?#\s]/g, ""))
+        );
+      });
     const filteredCountries =
       query === ""
-        ? countries
-        : countries.filter(c => {
+        ? result
+        : result.filter(c => {
             return c.country_name
               .toLowerCase()
               .includes(query.toLowerCase().trim());
           });
-
+    console.log(result);
     const list = filteredCountries.map(item => {
       return (
         <List.Item key={item.country_name} className={type}>
           <List.Item.Meta
             avatar={
-              <Avatar
-                src={`https://img.icons8.com/color/48/000000/${item.country_name
-                  .toLowerCase()
-                  .replace(/ /g, "-")}-circular.png`}
-              />
+              item.id !== undefined ? (
+                <Avatar
+                  src={require(`../imgs/free-flag-icons-96px/96px/${item.id}.png`)}
+                />
+              ) : (
+                <Avatar />
+              )
             }
             title={<h4>{item.country_name}</h4>}
             onClick={() => {

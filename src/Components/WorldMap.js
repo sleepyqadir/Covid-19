@@ -23,7 +23,6 @@ class WorldMap_1 extends Component {
       .filter(val => {
         return val !== undefined;
       });
-    console.log(result);
     am4core.useTheme(am4themes_animated);
     var chart = am4core.create("chartdiv", am4maps.MapChart);
 

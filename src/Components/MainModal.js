@@ -30,8 +30,15 @@ class MainModal extends Component {
             <Row center="lg">
               <Col lg={12}>
                 <Row center="lg">
-                  <Col lg={6}>
-                    <h1 className="country_name" >{country.country_name}</h1>
+                  <Col lg={10}>
+                    {country.id !== undefined ? (
+                      <img
+                        src={require(`../imgs/free-flag-icons-96px/96px/${country.id}.png`)}
+                        alt={country.id}
+                      />
+                    ) : (
+                      <img alt={country.id} />
+                    )}
                   </Col>
                 </Row>
               </Col>
