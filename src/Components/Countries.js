@@ -1,28 +1,17 @@
 import React, { Component } from "react";
-import { Layout, Menu, Dropdown, Button, Modal } from "antd";
+import { Layout, Menu, Dropdown, Button } from "antd";
 import { List, Avatar } from "antd";
 import { RadarChartOutlined } from "@ant-design/icons";
-import BarChart from "./BarChart";
 import MainModal from "./MainModal";
+import { Row, Col } from "react-flexbox-grid";
 const { Content } = Layout;
 class Countries extends Component {
-  componentDidMount() {
-    fetch("http://127.0.0.1:8000/").then(res => {
-      res.json().then(data => {
-        this.setState({
-          countries: data.data
-        });
-      });
-    });
-  }
-
   handleMenuClick = e => {
     this.setState({
       type: e.key
     });
   };
   state = {
-    countries: [],
     type: "total_cases",
     modalVisible: false,
     modalCountry: {}
@@ -47,8 +36,8 @@ class Countries extends Component {
         </Menu.Item>
       </Menu>
     );
-    const { countries, type, modalCountry, modalVisible } = this.state;
-    const { query } = this.props;
+    const { type, modalCountry, modalVisible } = this.state;
+    const { query, countries } = this.props;
     const filteredCountries =
       query === ""
         ? countries
@@ -57,6 +46,7 @@ class Countries extends Component {
               .toLowerCase()
               .includes(query.toLowerCase().trim());
           });
+
     const list = filteredCountries.map(item => {
       return (
         <List.Item key={item.country_name} className={type}>
@@ -96,17 +86,20 @@ class Countries extends Component {
             bordered={true}
             className="country_list"
             header={
-              <div>
-                {" "}
-                <h3 className="update_time">
-                  Total Territories : {countries.length}{" "}
+              <Row>
+                <Col lg="12">
+                  <h3 className="update_time">
+                    Total Territories : {countries.length}
+                  </h3>
+                </Col>
+                <Col>
                   <Dropdown overlay={menu}>
-                    <Button style={{ marginLeft: "50px" }}>
+                    <Button>
                       <RadarChartOutlined />
                     </Button>
                   </Dropdown>
-                </h3>
-              </div>
+                </Col>
+              </Row>
             }
           >
             {list}

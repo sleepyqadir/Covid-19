@@ -117,3 +117,29 @@
   left: 40vw;
   width: 10vw;
 }
+
+#chartdiv2 {
+  width: 100%;
+  height: 400px;
+}
+
+.rate_heading {
+  color: white !important;
+  font-weight: bolder;
+}
+.recovery_rate {
+  color: #d46b08;
+  font-weight: bolder;
+}
+.death_rate {
+  color: #cf1322;
+  font-weight: bolder;
+}
+.population_rate {
+  color: #52c41a;
+  font-weight: bolder;
+}
+.country_name {
+  font-size: 26px;
+  font-weight: bolder;
+}

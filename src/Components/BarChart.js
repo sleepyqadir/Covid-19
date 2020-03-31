@@ -1,62 +1,106 @@
 import React, { Component } from "react";
-import Chart from "chart.js";
-class BarChart extends Component {
-  chartRef = React.createRef();
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
-  componentDidMount() {
+class BarChart extends Component {
+  componentDidUpdate() {
     const { country } = this.props;
-    console.log(country.cases);
-    const myChartRef = this.chartRef.current.getContext("2d");
-    new Chart(myChartRef, {
-      type: "bar",
-      data: {
-        labels: ["Effected", "Deaths", "Recovered", "Citical"],
-        datasets: [
-          {
-            label: [],
-            data: [
-              parseInt(country.cases.replace(/[~%&\\;:"',<>?#\s]/g, "")),
-              parseInt(country.deaths.replace(/[~%&\\;:"',<>?#\s]/g, "")),
-              parseInt(
-                country.total_recovered.replace(/[~%&\\;:"',<>?#\s]/g, "")
-              ),
-              parseInt(
-                country.serious_critical.replace(/[~%&\\;:"',<>?#\s]/g, "")
-              )
-            ],
-            backgroundColor: [
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)"
-            ],
-            borderColor: [
-              "rgba(75, 192, 192, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)"
-            ],
-            borderWidth: 2
-          }
-        ]
+    am4core.useTheme(am4themes_animated);
+    // Create chart instance
+
+    var chart = am4core.create("chartdiv2", am4charts.PieChart);
+    console.log(this.state.country);
+    // Add data
+    chart.data = [
+      {
+        name: "Cases",
+        value: country.cases
       },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ]
-        }
+      {
+        name: "Deaths",
+        value: country.deaths
+      },
+      {
+        name: "Critical",
+        value: country.serious_critical
+      },
+      {
+        name: "Recovered",
+        value: country.total_recovered
       }
-    });
+    ];
+    chart.colors.list = [
+      am4core.color("#333333"),
+      am4core.color("#000000"),
+      am4core.color("#FF6F91"),
+      am4core.color("#FF9671")
+    ];
+
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "value";
+    pieSeries.dataFields.category = "name";
+
+    // Let's cut a hole in our Pie chart the size of 40% the radius
+    chart.innerRadius = am4core.percent(40);
+
+    // Put a thick white border around each Slice
+    pieSeries.slices.template.stroke = am4core.color("#123344");
+    pieSeries.slices.template.strokeWidth = 2;
+    pieSeries.slices.template.strokeOpacity = 1;
+
+    // Add a legend
+    chart.legend = new am4charts.Legend();
   }
+  componentDidMount() {
+    am4core.useTheme(am4themes_animated);
+    // Create chart instance
+    var chart = am4core.create("chartdiv2", am4charts.PieChart);
+    const { country } = this.state;
+    // Add data
+    chart.data = [
+      {
+        name: "Cases",
+        value: country.cases
+      },
+      {
+        name: "Deaths",
+        value: country.deaths
+      },
+      {
+        name: "Critical",
+        value: country.serious_critical
+      },
+      {
+        name: "Recovered",
+        value: country.total_recovered
+      }
+    ];
+
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "value";
+    pieSeries.dataFields.category = "name";
+
+    // Let's cut a hole in our Pie chart the size of 40% the radius
+    chart.innerRadius = am4core.percent(40);
+
+    // Put a thick white border around each Slice
+    pieSeries.slices.template.stroke = am4core.color("#123344");
+    pieSeries.slices.template.strokeWidth = 2;
+    pieSeries.slices.template.strokeOpacity = 1;
+
+    // Add a legend
+    chart.legend = new am4charts.Legend();
+  }
+  state = {
+    country: this.props.country
+  };
   render() {
     return (
       <div>
-        <canvas id="myChart" ref={this.chartRef} />
+        <div id="chartdiv2"></div>
       </div>
     );
   }
