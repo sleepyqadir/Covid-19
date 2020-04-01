@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import Logo from "../imgs/logo_white.png";
-import { Layout, Input, Button, Tooltip } from "antd";
+import { Layout, Input, Button, Tooltip, Dropdown, Menu } from "antd";
 import { Row, Col } from "react-flexbox-grid";
-import { GithubOutlined } from "@ant-design/icons";
+import { GithubOutlined, MenuOutlined } from "@ant-design/icons";
 const { Header } = Layout;
 const { Search } = Input;
+
 class MainHeader extends Component {
   render() {
-    console.log(this.props.last_update);
+    const menu = (
+      <Menu onClick={this.props.handleMenuClick}>
+        <Menu.Item key="home_active">Home</Menu.Item>
+        <Menu.Item key="world_map_active">World Map</Menu.Item>
+        <Menu.Item>
+          <Button>
+            Github <GithubOutlined />
+          </Button>
+        </Menu.Item>
+      </Menu>
+    );
     return (
       <Header
         className="site-layout-sub-header-background"
@@ -23,11 +34,11 @@ class MainHeader extends Component {
                 <h1 className="main_logo_heading">COVID-19</h1>
               </Col>
               <Col xs={3}>
-                <Tooltip placement="topLeft" title={"repo link"}>
-                  <Button className="hidden-lg" >
-                    <GithubOutlined />
+                <Dropdown className="hidden-lg" overlay={menu}>
+                  <Button>
+                    <MenuOutlined />
                   </Button>
-                </Tooltip>
+                </Dropdown>
               </Col>
             </Row>
           </Col>

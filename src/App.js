@@ -3,13 +3,12 @@ import { Row, Col } from "react-flexbox-grid";
 import "antd/dist/antd.css";
 import React, { Component } from "react";
 import "./App.css";
-import Logo from "./imgs/logo_blue.png";
+import Logo from "./imgs/logo_white.png";
 import SiteStatitic from "./Components/SiteStatitic";
 import MainHeader from "./Components/MainHeader";
 import Countries from "./Components/Countries";
 import WorldMap from "./Components/WorldMap";
 import MaintenancePage from "./Components/MaintainencePage";
-// import World from "./Components/WorldMap_1";
 
 class App extends Component {
   componentDidMount() {
@@ -34,7 +33,13 @@ class App extends Component {
     world_total_stats: {},
     query: "",
     Countries: [],
-    modalVisible: true
+    modalVisible: true,
+    active: "home_active"
+  };
+  handleMenuClick = e => {
+    this.setState({
+      active: e.key
+    });
   };
   onHandleChange = e => {
     this.setState({
@@ -42,19 +47,26 @@ class App extends Component {
     });
   };
   render() {
-    const { world_total_stats, isLoading, countries } = this.state;
+    const { world_total_stats, isLoading, countries, active } = this.state;
     return isLoading ? (
       world_total_stats.statistic_taken_at ? (
         <Layout>
           <MainHeader
             last_update={world_total_stats.statistic_taken_at}
             onHandleChange={this.onHandleChange}
+            handleMenuClick={this.handleMenuClick}
           />
           <Row>
             <Col lg={9} sm={12} xs={12}>
               <Layout className="layout">
                 <SiteStatitic world_total_stats={world_total_stats} />
-                <div className="world_map hidden-sm">
+                <div
+                  className={
+                    active === "world_map_active"
+                      ? "world_map"
+                      : "world_map hidden-sm"
+                  }
+                >
                   <WorldMap countries={countries} />
                 </div>
               </Layout>
@@ -65,6 +77,7 @@ class App extends Component {
                   query={this.state.query}
                   countries={countries}
                   onHandleChange={this.onHandleChange}
+                  className={active === "home_active" ? "hidden-sm" : null}
                 />
               </Layout>
             </Col>
