@@ -120,7 +120,7 @@
 
 #chartdiv2 {
   width: 100%;
-  height: 400px;
+  height: 50vh;
 }
 
 .rate_heading {
@@ -146,4 +146,20 @@
 .data_maintenance {
   margin: 30px;
   width: 40vw;
+}
+
+@media (max-width: 991px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-xl {
+    display: none !important;
+  }
+}
+@media (max-width: 479px) {
+  .hidden-sm {
+    display: none !important;
+  }
 }

@@ -15,7 +15,7 @@ import MaintenancePage from "./Components/MaintainencePage";
 class App extends Component {
   componentDidMount() {
     Promise.all([
-      fetch("https://node-covid19.herokuapp.com/tota_ratio"),
+      fetch("https://node-covid19.herokuapp.com/total_ratio"),
       fetch("https://node-covid19.herokuapp.com/")
     ])
       .then(([res1, res2]) => {
@@ -43,36 +43,19 @@ class App extends Component {
     });
   };
   render() {
-    const {
-      world_total_stats,
-      isLoading,
-      countries,
-      modalVisible
-    } = this.state;
+    const { world_total_stats, isLoading, countries } = this.state;
     return isLoading ? (
       world_total_stats.statistic_taken_at ? (
         <Layout>
-          <Modal
-            visible={modalVisible}
-            onCancel={() => {
-              this.setState({
-                modalVisible: false
-              });
-            }}
-            footer={[]}
-            width={670}
-          >
-            <img src={virus} alt="precaution" style={{ marginTop: "20px" }} />
-          </Modal>
           <MainHeader
             last_update={world_total_stats.statistic_taken_at}
             onHandleChange={this.onHandleChange}
           />
           <Row>
-            <Col lg={9}>
+            <Col lg={9} sm={12} xs={12}>
               <Layout className="layout">
                 <SiteStatitic world_total_stats={world_total_stats} />
-                <div className="world_map">
+                <div className="world_map hidden-sm">
                   <WorldMap countries={countries} />
                 </div>
               </Layout>

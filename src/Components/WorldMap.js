@@ -6,7 +6,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import { mapData } from "../utils/mapData";
 import { latlong } from "../utils/latLong";
 import { Row, Col } from "react-flexbox-grid";
-
+import { Tooltip } from "antd";
 am4core.useTheme(am4themes_animated);
 class WorldMap_1 extends Component {
   componentDidMount() {
@@ -75,8 +75,7 @@ class WorldMap_1 extends Component {
     circle.strokeOpacity = 0;
     circle.fillOpacity = 0.75;
     circle.propertyFields.strokeWidth = 30;
-    circle.tooltipText = "{name}: [bold]{value}[/]";
-
+    circle.tooltipText = "{name}: [bold]{value} C";
     imageSeries.heatRules.push({
       target: circle,
       property: "radius",

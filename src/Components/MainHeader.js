@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Logo from "../imgs/logo_white.png";
 import { Layout, Input } from "antd";
 import { Row, Col } from "react-flexbox-grid";
+import { GithubOutlined } from "@ant-design/icons";
 const { Header } = Layout;
 const { Search } = Input;
-
 class MainHeader extends Component {
   render() {
     console.log(this.props.last_update);
@@ -33,17 +33,19 @@ class MainHeader extends Component {
               </Col>
             </Row>
           </Col>
-          <Col lg={4}>
+          <Col lg={3}>
             <Row center="lg">
               <Col lg="6">
                 <Search
                   placeholder="input search text"
                   onSearch={value => console.log(value)}
                   style={{ width: 200 }}
-                  className="search_input"
+                  className="search_input hidden-sm"
                   onChange={this.props.onHandleChange}
                 />
               </Col>
+
+              <GithubOutlined />
             </Row>
           </Col>
         </Row>

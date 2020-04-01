@@ -16,7 +16,7 @@ class SiteStatitic extends Component {
       new_cases,
       new_deaths
     } = world_total_stats;
-    console.log(world_total_stats)
+    console.log(world_total_stats);
     return (
       <div>
         <Content style={{ margin: "24px 16px 0" }}>

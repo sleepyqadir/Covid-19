@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Menu, Dropdown, Button } from "antd";
+import { Layout, Menu, Dropdown, Button, Tooltip } from "antd";
 import { List, Avatar } from "antd";
 import { RadarChartOutlined } from "@ant-design/icons";
 import MainModal from "./MainModal";
@@ -51,10 +51,14 @@ class Countries extends Component {
         return val;
       })
       .sort(function(a, b) {
-        return (
-          parseInt(b.cases.replace(/[~%&\\;:"',<>?#\s]/g, "")) -
-          parseInt(a.cases.replace(/[~%&\\;:"',<>?#\s]/g, ""))
-        );
+        return type === "total_cases"
+          ? parseInt(b.cases.replace(/[~%&\\;:"',<>?#\s]/g, "")) -
+              parseInt(a.cases.replace(/[~%&\\;:"',<>?#\s]/g, ""))
+          : type === "total_deaths"
+          ? parseInt(b.deaths.replace(/[~%&\\;:"',<>?#\s]/g, "")) -
+            parseInt(a.deaths.replace(/[~%&\\;:"',<>?#\s]/g, ""))
+          : parseInt(b.total_recovered.replace(/[~%&\\;:"',<>?#\s]/g, "")) -
+            parseInt(a.total_recovered.replace(/[~%&\\;:"',<>?#\s]/g, ""));
       });
     const filteredCountries =
       query === ""
@@ -67,30 +71,32 @@ class Countries extends Component {
     console.log(result);
     const list = filteredCountries.map(item => {
       return (
-        <List.Item key={item.country_name} className={type}>
-          <List.Item.Meta
-            avatar={
-              item.id !== undefined ? (
-                <Avatar
-                  src={require(`../imgs/free-flag-icons-96px/96px/${item.id}.png`)}
-                />
-              ) : (
-                <Avatar />
-              )
-            }
-            title={<h4>{item.country_name}</h4>}
-            onClick={() => {
-              this.setModal1Visible(true, item);
-            }}
-          />
-          {type === "total_cases" ? (
-            <div className="level_1_bg cases">{item.cases} C</div>
-          ) : type === "total_deaths" ? (
-            <div className="level_3_bg cases">{item.deaths} D</div>
-          ) : (
-            <div className="level_2_bg cases">{item.total_recovered} R</div>
-          )}
-        </List.Item>
+        <Tooltip placement="topLeft" title={"Click to see stats"}>
+          <List.Item key={item.country_name} className={type}>
+            <List.Item.Meta
+              avatar={
+                item.id !== undefined ? (
+                  <Avatar
+                    src={require(`../imgs/free-flag-icons-96px/96px/${item.id}.png`)}
+                  />
+                ) : (
+                  <Avatar />
+                )
+              }
+              title={<h4>{item.country_name}</h4>}
+              onClick={() => {
+                this.setModal1Visible(true, item);
+              }}
+            />
+            {type === "total_cases" ? (
+              <div className="level_1_bg cases">{item.cases} C</div>
+            ) : type === "total_deaths" ? (
+              <div className="level_3_bg cases">{item.deaths} D</div>
+            ) : (
+              <div className="level_2_bg cases">{item.total_recovered} R</div>
+            )}
+          </List.Item>
+        </Tooltip>
       );
     });
 
