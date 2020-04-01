@@ -112,8 +112,8 @@ class Countries extends Component {
             bordered={true}
             className="country_list"
             header={
-              <Row>
-                <Col lg="12">
+              <Row around="xs">
+                <Col>
                   <h3 className="update_time">
                     Total Territories : {countries.length}
                   </h3>
