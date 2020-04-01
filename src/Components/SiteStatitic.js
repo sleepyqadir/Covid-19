@@ -21,8 +21,8 @@ class SiteStatitic extends Component {
       <div>
         <Content style={{ margin: "24px 16px 0" }}>
           <div className="site-statistic-demo-card">
-            <Row center="lg">
-              <Col lg="4">
+            <Row center="xs">
+              <Col lg="4" xs="4">
                 <Card className="level_1_bg level_1_card" bordered={true}>
                   <Col>
                     <h3>
@@ -36,6 +36,7 @@ class SiteStatitic extends Component {
                           marginLeft: "30px",
                           backgroundColor: "#2f54eb"
                         }}
+                        className="hidden-sm"
                       ></Badge>
                     </h3>
                     <div>
@@ -49,7 +50,7 @@ class SiteStatitic extends Component {
                           },
                           duration: 3000
                         }}
-                        style={{ fontSize: 22 }}
+                        style={{ fontSize: "1.5rem" }}
                       >
                         0
                       </TweenOne>
@@ -57,7 +58,7 @@ class SiteStatitic extends Component {
                   </Col>
                 </Card>
               </Col>
-              <Col lg="4">
+              <Col lg="4" xs="4">
                 <Card className="level_3_bg level_3_card" bordered={true}>
                   <Col>
                     <h3>
@@ -71,6 +72,7 @@ class SiteStatitic extends Component {
                           marginLeft: "30px",
                           backgroundColor: ""
                         }}
+                        className="hidden-sm"
                       ></Badge>
                     </h3>
                     <TweenOne
@@ -83,7 +85,7 @@ class SiteStatitic extends Component {
                         },
                         duration: 3000
                       }}
-                      style={{ fontSize: 22 }}
+                      style={{ fontSize: "1.5rem" }}
                     >
                       0
                     </TweenOne>
@@ -91,7 +93,7 @@ class SiteStatitic extends Component {
                 </Card>
               </Col>
 
-              <Col lg="4">
+              <Col lg="4" xs="4">
                 <Card className="level_2_bg level_2_card" bordered={true}>
                   <Col>
                     <h3>TOTAL RECOVERED</h3>
@@ -105,7 +107,7 @@ class SiteStatitic extends Component {
                         },
                         duration: 3000
                       }}
-                      style={{ fontSize: 22 }}
+                      style={{ fontSize: "1.5rem" }}
                     >
                       0
                     </TweenOne>

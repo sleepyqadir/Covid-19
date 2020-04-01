@@ -162,4 +162,17 @@
   .hidden-sm {
     display: none !important;
   }
+  .country_list {
+    border: none;
+  }
+  .level_1_card {
+    font-size: 0.8rem;
+  }
+  .level_2_card {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  .level_3_card {
+    font-size: 0.8rem;
+  }
 }
