@@ -152,6 +152,9 @@
   .hidden-lg {
     display: none !important;
   }
+  .level_value {
+    font-size: 1.5rem;
+  }
 }
 @media (max-width: 767px) {
   .hidden-md {
@@ -165,14 +168,20 @@
   .country_list {
     border: none;
   }
+  .stats_card {
+    font-size: 0.7rem;
+  }
   .level_1_card {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .level_2_card {
-    font-size: 0.8rem;
-    margin-top: 10px;
+    font-size: 0.7rem;
   }
   .level_3_card {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+  #chartdiv2 {
+    width: 100%;
+    height: 40vh;
   }
 }

@@ -50,7 +50,7 @@ class SiteStatitic extends Component {
                           },
                           duration: 3000
                         }}
-                        style={{ fontSize: "1.5rem" }}
+                        className="level_value"
                       >
                         0
                       </TweenOne>
@@ -85,7 +85,7 @@ class SiteStatitic extends Component {
                         },
                         duration: 3000
                       }}
-                      style={{ fontSize: "1.5rem" }}
+                      className="level_value"
                     >
                       0
                     </TweenOne>
@@ -107,7 +107,7 @@ class SiteStatitic extends Component {
                         },
                         duration: 3000
                       }}
-                      style={{ fontSize: "1.5rem" }}
+                      className="level_value"
                     >
                       0
                     </TweenOne>

@@ -24,12 +24,12 @@ class MainModal extends Component {
             this.props.setModal1Visible(false);
           }}
           footer={[]}
-          width={900}
+          width={1000}
         >
           <div className="mainModal">
-            <Row center="lg">
+            <Row center="xs">
               <Col lg={12}>
-                <Row center="lg">
+                <Row center="xs">
                   <Col lg={10}>
                     {country.id !== undefined ? (
                       <img
@@ -43,9 +43,9 @@ class MainModal extends Component {
                 </Row>
               </Col>
             </Row>
-            <Row center="lg">
-              <Col lg="4">
-                <Card className="recovery_rate" bordered={true}>
+            <Row center="xs">
+              <Col lg="4" xs="4">
+                <Card className="recovery_rate stats_card" bordered={true}>
                   <Col>
                     <h3>Recovery Rate</h3>
                     <div>
@@ -57,7 +57,7 @@ class MainModal extends Component {
                           },
                           duration: 1000
                         }}
-                        style={{ fontSize: 22 }}
+                        className="level_value"
                       >
                         0
                       </TweenOne>
@@ -65,8 +65,8 @@ class MainModal extends Component {
                   </Col>
                 </Card>
               </Col>
-              <Col lg="4">
-                <Card className="death_rate" bordered={true}>
+              <Col lg="4" xs="4">
+                <Card className="death_rate stats_card" bordered={true}>
                   <Col>
                     <h3>Death Rate</h3>
                     <TweenOne
@@ -77,16 +77,18 @@ class MainModal extends Component {
                         },
                         duration: 1000
                       }}
-                      style={{ fontSize: 22 }}
+                      className="level_value"
                     >
                       0
                     </TweenOne>
                   </Col>
                 </Card>
               </Col>
-
-              <Col lg="4">
-                <Card className="population_rate" bordered={true}>
+              <Col lg="4" xs="4">
+                <Card
+                  className="population_rate stats_card"
+                  bordered={true}
+                >
                   <Col>
                     <h3>Critical Cases</h3>
                     <TweenOne
@@ -97,7 +99,7 @@ class MainModal extends Component {
                         },
                         duration: 1000
                       }}
-                      style={{ fontSize: 22 }}
+                      className="level_value"
                     >
                       0
                     </TweenOne>
