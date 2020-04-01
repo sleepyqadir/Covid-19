@@ -1,4 +1,4 @@
-import { Layout, Modal } from "antd";
+import { Layout } from "antd";
 import { Row, Col } from "react-flexbox-grid";
 import "antd/dist/antd.css";
 import React, { Component } from "react";
@@ -8,7 +8,6 @@ import SiteStatitic from "./Components/SiteStatitic";
 import MainHeader from "./Components/MainHeader";
 import Countries from "./Components/Countries";
 import WorldMap from "./Components/WorldMap";
-import virus from "./imgs/virus.jpg";
 import MaintenancePage from "./Components/MaintainencePage";
 // import World from "./Components/WorldMap_1";
 
@@ -62,7 +61,11 @@ class App extends Component {
             </Col>
             <Col lg={3}>
               <Layout>
-                <Countries query={this.state.query} countries={countries} />
+                <Countries
+                  query={this.state.query}
+                  countries={countries}
+                  onHandleChange={this.onHandleChange}
+                />
               </Layout>
             </Col>
           </Row>

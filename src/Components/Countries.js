@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Layout, Menu, Dropdown, Button, Tooltip } from "antd";
+import { Layout, Menu, Dropdown, Button, Tooltip, Input } from "antd";
 import { List, Avatar } from "antd";
 import { RadarChartOutlined } from "@ant-design/icons";
 import MainModal from "./MainModal";
 import { Row, Col } from "react-flexbox-grid";
 import { mapData } from "../utils/mapData";
 const { Content } = Layout;
+const { Search } = Input;
 class Countries extends Component {
   handleMenuClick = e => {
     this.setState({
@@ -124,6 +125,15 @@ class Countries extends Component {
                       <RadarChartOutlined />
                     </Button>
                   </Dropdown>
+                </Col>
+                <Col>
+                  <Search
+                    placeholder="Search Country"
+                    onSearch={value => console.log(value)}
+                    style={{ width: "80vw", marginTop: "10px" }}
+                    className="search_input hidden-lg"
+                    onChange={this.props.onHandleChange}
+                  />
                 </Col>
               </Row>
             }

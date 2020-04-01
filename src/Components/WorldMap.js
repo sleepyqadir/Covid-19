@@ -98,7 +98,7 @@ class WorldMap_1 extends Component {
       <Row>
         <Col lg={12}>
           <Row center="lg">
-            <Col xs={10}>
+            <Col xs={12}>
               <div
                 id="chartdiv"
                 style={{ width: "100%", height: "500px" }}
