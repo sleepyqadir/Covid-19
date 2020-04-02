@@ -1,19 +1,19 @@
-![logo_label (1)](https://user-images.githubusercontent.com/38910854/78242087-dc023680-74fa-11ea-89b8-c4988b254f8a.png
-##### Covid-19 is an real-time web application which give real-time update about the corono-virus cases in the world build on ReactJs
+<p align="center"> 
+  <kbd>
+<img src="src/imgs/logo_label.png"></img>
+  </kbd>
+</p>
+<hr>
+<p align="center">
+Covid-19 is an real-time web application which give real-time update about the corono-virus cases in the world build on ReactJs
+</p>
+<hr>
+<h2>:star: Features </h2>
+<p>:white_check_mark: real time updates of corono-virus cases in the world with 99% of accuracy </p>
+<p>:white_check_mark: total territories affected over the globe by corono-virus </p>
+<p>:white_check_mark: no of cases,death,recovered and in critical people in perticular country </p>
+<p>:white_check_mark: comparision of stats of perticular country </p>
+<p>:white_check_mark: death rate,recovery rate and people affected in per million population stats </p>
+<p>:white_check_mark: 3d world globe showing affection of virus in whole world </p>
 
----
-
-## 								Badges here
-
-# [live Demo](https://orthocovid-19.netlify.com/)
-
----
-
-## :tw-1f536: Features
-
-- real time updates of corono-virus cases in the world with 99% of accuracy
-- total territories affected over the globe by corono-virus
-- no of cases,death,recovered and in critical people in perticular country
-- comparision of stats of perticular country
-- death rate,recovery rate and people affected in per million population stats
-- 3d world globe showing affection of virus in whole world
+<hr>
