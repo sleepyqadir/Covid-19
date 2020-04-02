@@ -5,6 +5,12 @@
 </p>
 <hr>
 <p align="center">
+<img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
+<img alt="Netlify" src="https://img.shields.io/netlify/ef6bec37-0c07-4470-9a0f-7bccafc8aaba?logo=covid-19&logoColor=blue">
+<img alt="react src="https://img.shields.io/badge/react-2.2.4-blue.svg" >
+
+</p>
+<p align="center">
 Covid-19 is an real-time web application which give real-time update about the corono-virus cases in the world build on ReactJs
 </p>
 <hr>
@@ -33,5 +39,32 @@ Stack that is used to build thi up :
 - [Netlify](https://www.netlify.com/)
 
 
+<h2>:floppy_disk: Covid19Stats-API Backend<h2>
+<p>An API wrapper around [Rapid API for Corona Updates](https://rapidapi.com/astsiatsko/api/coronavirus-monitor) created by <a href="https://github.com/Saim-Akhtar"> Saim Akhtar </a> </p>
 
+Deployment On Heroku
+
+Click here to open the deployed link <a href="https://node-covid19.herokuapp.com">Node-Covid19 </a>
+
+## EndPoints
+
+ Deployed Link *[https://node-covid19.herokuapp.com](https://node-covid19.herokuapp.com)*
+
+- Get stats of all countries in the world
+> /
+
+- Get total world ratio
+> /total_ratio
+
+- Get A country's updated stats
+> /:country
+
+- Get A country's history stats
+> /:country/history
+
+## 🤝 Contributing
+
+We need you make this project more productive [Open a new issue](https://github.com/saadpasta/react-blog-github/issues)! Do you find any issue or have any creative idea ? open up a new issue , thanks
+
+#Thanks
 
