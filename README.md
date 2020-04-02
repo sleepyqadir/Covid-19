@@ -1,10 +1,9 @@
-!
-
+![logo_label (1)](https://user-images.githubusercontent.com/38910854/78242087-dc023680-74fa-11ea-89b8-c4988b254f8a.png
 ##### Covid-19 is an real-time web application which give real-time update about the corono-virus cases in the world build on ReactJs
 
 ---
 
-## Badges here
+## 								Badges here
 
 # [live Demo](https://orthocovid-19.netlify.com/)
 
