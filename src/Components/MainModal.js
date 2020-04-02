@@ -7,13 +7,23 @@ import ChildrenPlugin from "rc-tween-one/lib/plugin/ChildrenPlugin";
 TweenOne.plugins.push(ChildrenPlugin);
 class MainModal extends Component {
   render() {
-    const { country } = this.props;
+    const country = this.props.country.cases
+      ? this.props.country
+      : {
+          cases: "0",
+          deaths: "0",
+          total_recovered: "0",
+          serious_critical: "0"
+        };
+    console.log(country, "xxxxxxxxxxxxxxxx");
     let deathRate = (
-      (parseInt(country.deaths) / parseInt(country.cases)) *
+      (parseInt(country.deaths.replace(/[~%&\\;:"',<>?#\s]/g, "")) /
+        parseInt(country.cases.replace(/[~%&\\;:"',<>?#\s]/g, ""))) *
       100
     ).toFixed(2);
     let recoveredRate = (
-      (parseInt(country.total_recovered) / parseInt(country.cases)) *
+      (parseInt(country.total_recovered.replace(/[~%&\\;:"',<>?#\s]/g, "")) /
+        parseInt(country.cases.replace(/[~%&\\;:"',<>?#\s]/g, ""))) *
       100
     ).toFixed(2);
     return (
@@ -85,16 +95,18 @@ class MainModal extends Component {
                 </Card>
               </Col>
               <Col lg="4" xs="4">
-                <Card
-                  className="population_rate stats_card"
-                  bordered={true}
-                >
+                <Card className="population_rate stats_card" bordered={true}>
                   <Col>
                     <h3>Critical Cases</h3>
                     <TweenOne
                       animation={{
                         Children: {
-                          value: parseInt(country.serious_critical),
+                          value: parseInt(
+                            country.serious_critical.replace(
+                              /[~%&\\;:"',<>?#\s]/g,
+                              ""
+                            )
+                          ),
                           formatMoney: true
                         },
                         duration: 1000

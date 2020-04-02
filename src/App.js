@@ -60,13 +60,7 @@ class App extends Component {
             <Col lg={9} sm={12} xs={12}>
               <Layout className="layout">
                 <SiteStatitic world_total_stats={world_total_stats} />
-                <div
-                  className={
-                    active === "world_map_active"
-                      ? "world_map"
-                      : "world_map hidden-sm"
-                  }
-                >
+                <div className={active === "world_map_active" ? "world_map" : "world_map hidden-sm"}>
                   <WorldMap countries={countries} />
                 </div>
               </Layout>
