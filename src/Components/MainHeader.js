@@ -14,7 +14,9 @@ class MainHeader extends Component {
         <Menu.Item key="world_map_active">World Map</Menu.Item>
         <Menu.Item>
           <Button>
-            Github <GithubOutlined />
+            <a href="https://github.com/AQadir64/Covid-19">
+              Github <GithubOutlined />
+            </a>
           </Button>
         </Menu.Item>
       </Menu>
@@ -67,7 +69,9 @@ class MainHeader extends Component {
           <Col lg={1}>
             <Tooltip placement="topLeft" title={"repo link"}>
               <Button className="hidden-sm">
-                <GithubOutlined />
+                <a href="https://github.com/AQadir64/Covid-19">
+                  <GithubOutlined />
+                </a>
               </Button>
             </Tooltip>
           </Col>
