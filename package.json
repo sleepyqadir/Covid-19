@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@amcharts/amcharts4": "^4.9.12",
+    "@amcharts/amcharts4": "^4.10.40",
     "@amcharts/amcharts4-geodata": "^4.1.14",
     "@antv/g2plot": "^1.0.2",
     "@antv/l7": "^2.0.0-beta.28",
