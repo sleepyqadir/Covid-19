@@ -19,7 +19,7 @@
     "react-dom": "^16.13.1",
     "react-flexbox-grid": "^2.1.2",
     "react-infinite-scroller": "^1.2.4",
-    "react-scripts": "3.4.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
